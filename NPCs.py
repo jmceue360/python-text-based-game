@@ -1,38 +1,85 @@
 import random
 
 
-####-Logic-#########################################################################################################
-def typerandomizer():
-    global typepick
-    random.choice(typepick)
-    typepick = ['N', 'H', 'V']
-    if typepick == 'N':
-        normalplayer()
-    elif typepick == 'H':
-        heroplayer()
-    elif typepick == 'V':
-        villainplayer()
-
-def normalplayer():
-    global playerig
-
-    random.choice(playerig)
-    playerig = ['Normal', 'Hero', 'Villain']
-
-
-def heroplayer():
-    global playerig
-    random.choice(playerig)
-    playerig = ['Normal', 'Hero', 'Villain']
-
-
-def villainplayer():
-    global playerig
-    random.choice(playerig)
-    playerig = ['Normal', 'Hero', 'Villain']
+#Type Classes
+class Hero:
+    def __init__(self, name):
+                self.name = name
+                self.maxhealth = 300
+                self.health = 100
+                self.maxarmor = 250
+                self.armor = 0
+                self.base_attack = 5
+                self.hunger = 100
+                self.thirst = 100
+                self.money = 10000000000000
+                self.salary = 1000000
+                self.meds = 3
+                self.saying1 = ""
+                self.saying2 = ""
+                self.weap = ["Randomness"]
+                self.curweap = ["Randomness"]
+                self.driverslicense = False
+                self.home = False
+                self.fleechance = False
+                self.sickness = False
 
 
-######-NPC_NAMES-#######################################################################################################
+class Villain:
+    def __init__(self, name):
+                self.name = name
+                self.maxhealth = 500
+                self.health = 150
+                self.maxarmor = 400
+                self.armor = 10
+                self.base_attack = 5
+                self.hunger = 100
+                self.thirst = 100
+                self.money = 10000000000000
+                self.salary = 1000000
+                self.meds = 3
+                self.saying1 = ""
+                self.saying2 = ""
+                self.weap = ["Randomness"]
+                self.curweap = ["Randomness"]
+                self.driverslicense = False
+                self.home = False
+                self.fleechance = False
+                self.sickness = False
+
+
+####-Logic
+# def typerandomizer():
+#     global typepick
+#     random.choice(typepick)
+#     typepick = ['N', 'H', 'V']
+#     if typepick == 'N':
+#         normalplayer()
+#     elif typepick == 'H':
+#         heroplayer()
+#     elif typepick == 'V':
+#         villainplayer()
+#
+# def normalplayer():
+#     global playerig
+#
+#     random.choice(playerig)
+#     playerig = ['Normal', 'Hero', 'Villain']
+#
+#
+# def heroplayer():
+#     global playerig
+#     random.choice(playerig)
+#     playerig = ['Normal', 'Hero', 'Villain']
+#
+#
+# def villainplayer():
+#     global playerig
+#     random.choice(playerig)
+#     playerig = ['Normal', 'Hero', 'Villain']
+
+
+######-NPC_NAMES
 def gender():
     global gendernpc
     random.choice(gendernpc)
@@ -61,7 +108,7 @@ def female():
                   'Elizabeth', "Avery", "Riley", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Grace", "Chloe", "Camila"]
 
 
-#####-PLAYER_NAMES-#####################################################################################################
+#####-PLAYER_NAMES
 def gender_ig():
     global genderig
     random.choice(genderig)
@@ -90,21 +137,23 @@ def Female():
                   'Elizabeth', "Avery", "Riley", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Grace", "Chloe", "Camila"]
 
 
-####-NPC&PLAYER-########################################################################################################
+####-NPC&PLAYER
 class Character:
     def __init__(self, name):
         assert isinstance(name, object)
         self.name = name
-        self.maxhealth = 100
-        self.health = self.maxhealth
-        self.maxarmor = 200
+        self.maxhealth = 200
+        self.health = 100
+        self.maxarmor = 250
         self.armor = 0
-        self.base_attack = 5
-        self.hunger = 100
-        self.thirst = 100
-        self.money = 100000000000
-        self.salary = 10000000
-        self.meds = 3
+        self.base_attack = 1
+        self.maxhunger = 100
+        self.hunger = 0
+        self.maxthirst = 100
+        self.thirst = 0
+        self.maxmoney = 10000000000000
+        self.money = 0
+        self.meds = 5
         self.saying1 = ""
         self.saying2 = ""
         self.weap = ["Fists"]
@@ -120,24 +169,30 @@ class Player(Character):
     def __init__(self, name):
         Character.__init__(self, name)
         self.name = gender_ig
-        self.maxhealth = 100
-        self.health = self.maxhealth
-        self.base_attack = 10
+        self.maxhealth = 200
+        self.health = 100
+        self.maxarmor = 250
+        self.armor = 0
+        self.base_attack = 1
+        self.maxhunger = 100
         self.hunger = 0
-        self.gold = 40
+        self.maxthirst = 100
+        self.thirst = 0
+        self.money = 0
         self.meds = 0
         self.weap = ["Fists"]
         self.curweap = ["Fists"]
         self.driverslicense = False
-        self.home = False
+        self.home = True
+        self.homeType = "Parent's Basement"
         self.fleechance = False
         self.sickness = False
 
 
 class NPC(Character):
     global gendernpc
-    def __init__(self, name, type):
-        Character.__init__(self, name, type)
+    def __init__(self, name):
+        Character.__init__(self, name)
         self.name = gendernpc
         self.type = [people_dict, authorities_dict, animals_dict, shops_dict]
         self.maxhealth = 100
@@ -150,7 +205,7 @@ class NPC(Character):
         self.saying2 = ""
 
 
-####-Authorities-################################################################################################################
+####-Authorities
 def randomnpcs():
     global people_dict
     people_dict = {"Neigbor": {"name": "random.name", "gender": "random.choice()", "health": 30, "attack": 20},
@@ -178,7 +233,7 @@ def randomnpcs():
                     "Rich person": {"name": "random.name", "gender": "random.choice()", "health": 20, "attack": 50}}
 
 
-####-Authorities-################################################################################################################
+####-Authorities
 def authorities():
     global authorities_dict
     authorities_dict = {"Police": {"name": "random.name", "gender": "random.choice()", "health": 30, "attack": 20},
@@ -198,7 +253,7 @@ def authorities():
                         "": {"name": "random.name", "gender": "random.choice()", "health": 20, "attack": 50}}
 
 
-####-Animals-#######################################################################################################################
+####-Animals
 def pets():
     global animals_dict
     animals_dict = {"Dog": {"name": "random.name", "health": 20, "attack": 5},
@@ -216,7 +271,7 @@ def pets():
                     "Lizard": {"name": "random.name", "health": 10, "attack": 20},
                     "Bird": {"name": "random.name", "health": 100, "attack": 10}}
 
-####-NPCshops-########################################################################################################################
+####-NPCshops
 def traders():
     global shops_dict
     shops_dict = {"Real Estate": {"name": "Imp", "health": 20, "attack": 5},
@@ -234,7 +289,12 @@ def traders():
                   "Pawn-shop": {"name": "random.name", "health": 10, "attack": 20},
                   "food-market": {"name": "Orge", "health": 100, "attack": 10}}
 
-####-Baddies-#########################################################################################################################
+class trader:
+    def __init__(self, specialty, items):
+        self.specialty
+        
+
+####-Baddies
 def badpeople():
     global baddies_dict
     baddies_dict = {"ISIS Member": {"name": "random.name", "health": 20, "attack": 5},
@@ -253,7 +313,7 @@ def badpeople():
                     "Pawn-shop": {"name": "random.name", "health": 10, "attack": 20},
                     "Ogre": {"name": "Orge", "health": 100, "attack": 10}}
 
-####-Heroes-##############################################################################################################################
+####-Heroes
 def heroes():
     global heroes_dict
     heroes_dict = {"Spooderman": {"Type": "Hero", "gender": "Male", "health": 30, "attack": 20},
@@ -286,7 +346,7 @@ def heroes():
                    "The Fist": {"Type": "Hero", "gender": "random.choice()", "health": 10, "attack": 20},
                    "Squirrel Girl": {"Type": "Hero", "gender": "random.choice()", "health": 20, "attack": 50}}
 
-####-Villains-##############################################################################################################################
+####-Villains
 def villains():
     global villians_dict
     villians_dict = {"The Tapeinator": {"Type": "Villain", "gender": "Male", "health": 30, "attack": 20},
