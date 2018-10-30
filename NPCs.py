@@ -122,11 +122,10 @@ def gender_ig():
 def Male():
     global maleig_names
     while gender == 'male_ig':
-      random.choice(maleig_names)
+      Mname = raw_input(random.choice(maleig_names))
       maleig_names = ["Jacob", "Liam", "Kyle", "Noah", "Bob", "Sean", "Marcus", "Micheal", 'Mike', "Jeff", "Owen", "Jayden",
                 "William", "James", "Logan", "Benjamin", "Mason", "Elijah", "Oliver", "Lucas", "Alexander", "Ethan","Luke",
                 'Daniel', "Matthew", "Aiden", "Henry", "Joseph", "Jackson", "Samuel", "Sebastian", "David", "Wyatt", "John"]
-
 
 def Female():
     global femaleig_names
@@ -292,7 +291,7 @@ def traders():
 class trader:
     def __init__(self, specialty, items):
         self.specialty
-        
+
 
 ####-Baddies
 def badpeople():
