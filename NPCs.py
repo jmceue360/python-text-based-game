@@ -17,8 +17,8 @@ class Hero:
                 self.meds = 3
                 self.saying1 = ""
                 self.saying2 = ""
-                self.weap = ["Randomness"]
-                self.curweap = ["Randomness"]
+                self.weap = ["Fist"]
+                self.curweap = ["Fist"]
                 self.driverslicense = False
                 self.home = False
                 self.fleechance = False
@@ -40,8 +40,8 @@ class Villain:
                 self.meds = 3
                 self.saying1 = ""
                 self.saying2 = ""
-                self.weap = ["Randomness"]
-                self.curweap = ["Randomness"]
+                self.weap = ["Fist"]
+                self.curweap = ["Fist"]
                 self.driverslicense = False
                 self.home = False
                 self.fleechance = False
@@ -343,7 +343,7 @@ def heroes():
                    "Basement Bobby": {"Type": "Hero", "gender": "random.choice()", "health": 10, "attack": 20},
                    "Dr Three Legs": {"Type": "Hero", "gender": "random.choice()", "health": 10, "attack": 20},
                    "The Fist": {"Type": "Hero", "gender": "random.choice()", "health": 10, "attack": 20},
-                   "Squirrel Girl": {"Type": "Hero", "gender": "random.choice()", "health": 20, "attack": 50}}
+                   "Squirrel Woman": {"Type": "Hero", "gender": "random.choice()", "health": 20, "attack": 50}}
 
 ####-Villains
 def villains():
