@@ -1,7 +1,9 @@
 #!/usr/bin/env python
+import random
 import time
 import sys
 import os
+from NPCs import Male, Female, gender_ig
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -137,8 +139,8 @@ def cutscene():
 
 
 def char_create():
-    """Character Create"""
-    print "      Are you a Male or a Female?"
+
+
 
 
 def play():
@@ -152,24 +154,24 @@ def title_pic():
     os.system('cls')
     time.sleep(1.5)
     print """
-=====================================================================================================================================
-    EEEEEEEEEEEEEEEEEEEEEE               AAA               RRRRRRRRRRRRRRRRR   TTTTTTTTTTTTTTTTTTTTTTTHHHHHHHHH     HHHHHHHHH
-    E::::::::::::::::::::E              A:::A              R::::::::::::::::R  T:::::::::::::::::::::TH:::::::H     H:::::::H
-    E::::::::::::::::::::E             A:::::A             R::::::RRRRRR:::::R T:::::::::::::::::::::TH:::::::H     H:::::::H
-    EE::::::EEEEEEEEE::::E            A:::::::A            RR:::::R     R:::::RT:::::TT:::::::TT:::::THH::::::H     H::::::HH
-      E:::::E       EEEEEE           A:::::::::A             R::::R     R:::::RTTTTTT  T:::::T  TTTTTT  H:::::H     H:::::H
-      E:::::E                       A:::::A:::::A            R::::R     R:::::R        T:::::T          H:::::H     H:::::H   ::::::
-      E::::::EEEEEEEEEE            A:::::A A:::::A           R::::RRRRRR:::::R         T:::::T          H::::::HHHHH::::::H   ::::::
-      E:::::::::::::::E           A:::::A   A:::::A          R:::::::::::::RR          T:::::T          H:::::::::::::::::H   ::::::
-      E:::::::::::::::E          A:::::A     A:::::A         R::::RRRRRR:::::R         T:::::T          H:::::::::::::::::H
-      E::::::EEEEEEEEEE         A:::::AAAAAAAAA:::::A        R::::R     R:::::R        T:::::T          H::::::HHHHH::::::H
-      E:::::E                  A:::::::::::::::::::::A       R::::R     R:::::R        T:::::T          H:::::H     H:::::H
-      E:::::E       EEEEEE    A:::::AAAAAAAAAAAAA:::::A      R::::R     R:::::R        T:::::T          H:::::H     H:::::H   ::::::
-    EE::::::EEEEEEEE:::::E   A:::::A             A:::::A   RR:::::R     R:::::R      TT:::::::TT      HH::::::H     H::::::HH ::::::
-    E::::::::::::::::::::E  A:::::A               A:::::A  R::::::R     R:::::R      T:::::::::T      H:::::::H     H:::::::H ::::::
-    E::::::::::::::::::::E A:::::A                 A:::::A R::::::R     R:::::R      T:::::::::T      H:::::::H     H:::::::H
-    EEEEEEEEEEEEEEEEEEEEEEAAAAAAA                   AAAAAAARRRRRRRR     RRRRRRR      TTTTTTTTTTT      HHHHHHHHH     HHHHHHHHH
-=====================================================================================================================================
+==============================================================================================================================
+EEEEEEEEEEEEEEEEEEEEEE               AAA               RRRRRRRRRRRRRRRRR   TTTTTTTTTTTTTTTTTTTTTTTHHHHHHHHH     HHHHHHHHH
+E::::::::::::::::::::E              A:::A              R::::::::::::::::R  T:::::::::::::::::::::TH:::::::H     H:::::::H
+E::::::::::::::::::::E             A:::::A             R::::::RRRRRR:::::R T:::::::::::::::::::::TH:::::::H     H:::::::H
+EE::::::EEEEEEEEE::::E            A:::::::A            RR:::::R     R:::::RT:::::TT:::::::TT:::::THH::::::H     H::::::HH
+  E:::::E       EEEEEE           A:::::::::A             R::::R     R:::::RTTTTTT  T:::::T  TTTTTT  H:::::H     H:::::H
+  E:::::E                       A:::::A:::::A            R::::R     R:::::R        T:::::T          H:::::H     H:::::H   ::::::
+  E::::::EEEEEEEEEE            A:::::A A:::::A           R::::RRRRRR:::::R         T:::::T          H::::::HHHHH::::::H   ::::::
+  E:::::::::::::::E           A:::::A   A:::::A          R:::::::::::::RR          T:::::T          H:::::::::::::::::H   ::::::
+  E:::::::::::::::E          A:::::A     A:::::A         R::::RRRRRR:::::R         T:::::T          H:::::::::::::::::H
+  E::::::EEEEEEEEEE         A:::::AAAAAAAAA:::::A        R::::R     R:::::R        T:::::T          H::::::HHHHH::::::H
+  E:::::E                  A:::::::::::::::::::::A       R::::R     R:::::R        T:::::T          H:::::H     H:::::H
+  E:::::E       EEEEEE    A:::::AAAAAAAAAAAAA:::::A      R::::R     R:::::R        T:::::T          H:::::H     H:::::H   ::::::
+EE::::::EEEEEEEE:::::E   A:::::A             A:::::A   RR:::::R     R:::::R      TT:::::::TT      HH::::::H     H::::::HH ::::::
+E::::::::::::::::::::E  A:::::A               A:::::A  R::::::R     R:::::R      T:::::::::T      H:::::::H     H:::::::H ::::::
+E::::::::::::::::::::E A:::::A                 A:::::A R::::::R     R:::::R      T:::::::::T      H:::::::H     H:::::::H
+EEEEEEEEEEEEEEEEEEEEEEAAAAAAA                   AAAAAAARRRRRRRR     RRRRRRR      TTTTTTTTTTT      HHHHHHHHH     HHHHHHHHH
+===============================================================================================================================
                         222222222222222         000000000          888888888             66666666
                         2:::::::::::::::22     00:::::::::00      88:::::::::88          6::::::6
                         2::::::222222:::::2  00:::::::::::::00  88:::::::::::::88       6::::::6
@@ -192,7 +194,7 @@ def title_pic():
 def story1():
     os.system('cls')
     time.sleep(0.5)
-    print """  In 2018 President Donald Trump confronted Kim Jong Un, leader of North Korea about his nuclear program  """
+    print """  In 2018 President Donald Trump confronted Kim Jong Un, leader of North Korea about his nuclear program 'CONTINUED LATER'"""
 
     time.sleep(1.0)
     option = raw_input('Continue?[Yes/No]---> ')
@@ -215,7 +217,7 @@ def story1():
 def story2():
     os.system('cls')
     time.sleep(0.5)
-    print """  Things were going fine for a couple of years of the two leaders working together against Russia"""
+    print """  Things were going fine for a couple of years of the two leaders working together against Russia  'CONTINUED LATER'"""
 
     time.sleep(1.0)
     option = raw_input('Continue?[Yes/No]---> ')
@@ -238,7 +240,7 @@ def story2():
 def story3():
     os.system('cls')
     time.sleep(0.5)
-    print """IM NOT DONE WITH THE WHOLE STORY YET!"""
+    print """IM NOT DONE WITH THE WHOLE GAME/STORY JUST YET"""
 
     time.sleep(1.0)
     option = raw_input('Continue?[Yes/No]---> ')
