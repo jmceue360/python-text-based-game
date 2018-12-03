@@ -1,8 +1,7 @@
 import random
 
 
-#Type Classes
-class Hero:
+class Super:
     def __init__(self, name):
                 self.name = name
                 self.maxhealth = 300
@@ -25,118 +24,125 @@ class Hero:
                 self.sickness = False
 
 
-class Villain:
-    def __init__(self, name):
-                self.name = name
-                self.maxhealth = 500
-                self.health = 150
-                self.maxarmor = 400
-                self.armor = 10
-                self.base_attack = 5
-                self.hunger = 100
-                self.thirst = 100
-                self.money = 10000000000000
-                self.salary = 1000000
-                self.meds = 3
-                self.saying1 = ""
-                self.saying2 = ""
-                self.weap = ["Fist"]
-                self.curweap = ["Fist"]
-                self.driverslicense = False
-                self.home = False
-                self.fleechance = False
-                self.sickness = False
+# class Villain:
+#     v = "blah"
+#     def __init__(self, name):
+#                 self.name = name
+#                 self.maxhealth = 500
+#                 self.health = 150
+#                 self.maxarmor = 400
+#                 self.armor = 10
+#                 self.base_attack = 5
+#                 self.hunger = 100
+#                 self.thirst = 100
+#                 self.money = 10000000000000
+#                 self.salary = 1000000
+#                 self.meds = 3
+#                 self.saying1 = ""
+#                 self.saying2 = ""
+#                 self.weap = ["Fist"]
+#                 self.curweap = ["Fist"]
+#                 self.driverslicense = False
+#                 self.home = False
+#                 self.fleechance = False
+#                 self.sickness = False
 
 
-####-Logic
-# def typerandomizer():
-#     global typepick
-#     random.choice(typepick)
-#     typepick = ['N', 'H', 'V']
-#     if typepick == 'N':
-#         normalplayer()
-#     elif typepick == 'H':
-#         heroplayer()
-#     elif typepick == 'V':
-#         villainplayer()
-#
-# def normalplayer():
-#     global playerig
-#
-#     random.choice(playerig)
-#     playerig = ['Normal', 'Hero', 'Villain']
-#
-#
-# def heroplayer():
-#     global playerig
-#     random.choice(playerig)
-#     playerig = ['Normal', 'Hero', 'Villain']
-#
-#
-# def villainplayer():
-#     global playerig
-#     random.choice(playerig)
-#     playerig = ['Normal', 'Hero', 'Villain']
+def typechance():
+    """Player type chance"""
+    N = Normal()
+    S = Super()
+#    villain = Villain()
+    t = random.randint(1, 30)
+
+    if t > 1 and t <= 10:
+        return Super()
+    else:
+        return Normal()
 
 
-######-NPC_NAMES
+# def Super():
+#
+#
+#
+# def Hero():
+
+
+
+def Villain():
+    time.sleep(0.5)
+    print "You have DARKNESS inside your heart..."
+    time.sleep(1.0)
+    print "What is your name?"
+    vname = raw_input
+
+
+#def Normal():
+
+
+
+# def gender():
+#     """NPC_NAME_PICKER"""
+#     global gendernpc
+#     random.choice(gendernpc)
+#     gendernpc = ['male_npc', 'female_npc']
+#     if gendernpc == 'male_npc':
+#         male()
+#     elif gendernpc == 'female_npc':
+#         female()
+
+
 def gender():
-    global gendernpc
-    random.choice(gendernpc)
-    gendernpc = ['male_npc', 'female_npc']
-    if gendernpc == 'male_npc':
-        male()
-    elif gendernpc == 'female_npc':
-        female()
+
 
 
 def male():
     global malenpcnames
     while gender == 'male_npc':
       random.choice(malenpcnames)
-      malenpcnames = ['Jacob', 'Liam', 'Kyle', 'Noah', "Bob", "Sean", "Marcus", "Micheal", 'Mike', "Jeff", "Owen", "Jayden", "William", "James",
-                "Logan", "Benjamin", "Mason", "Elijah", "Oliver", "Lucas", "Alexander", "Ethan","Luke", 'Daniel', "Matthew", "Aiden","Henry",
-                "Joseph", "Jackson", "Samuel", "Sebastian", "David", "Wyatt","John"]
+      malenpcnames = ["Jacob", "Liam", "Kyle", "Noah", "Bob", "Sean", "Marcus", "Micheal", 'Mike', "Jeff", "Owen", "Jayden", "William", "James",
+                "Logan", "Benjamin", "Mason", "Elijah", "Oliver", "Lucas", "Alexander", "Ethan", "Luke", "Daniel", "Matthew", "Aiden", "Henry",
+                "Joseph", "Jackson", "Samuel", "Sebastian", "David", "Wyatt", "John"]
 
 
 def female():
     global femalenpcnames
     while gender == 'female_npc':
       random.choice(femalenpcnames)
-      femalenpcnames = ["Angel", "Emma", "Samantha", "Sabrina", "Sally", "Debbie", "Jasmine", "Layla", "Nora", "Zoey","Lilly","Mila", "Luna",
-                  "Olivia", "Isabella", "Sophia", "Mia", "Charlotte", "Amelia", "Evelyn", "Abigail", "Harper", "Emily","Penelope",
-                  'Elizabeth', "Avery", "Riley", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Grace", "Chloe", "Camila"]
+      femalenpcnames = ["Angel", "Emma", "Samantha", "Sabrina", "Sally", "Debbie", "Jasmine", "Layla", "Nora", "Zoey", "Lilly", "Mila", "Luna",
+                  "Olivia", "Isabella", "Sophia", "Mia", "Charlotte", "Amelia", "Evelyn", "Abigail", "Harper", "Emily", "Penelope",
+                  "Elizabeth", "Avery", "Riley", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Grace", "Chloe", "Camila"]
 
 
-#####-PLAYER_NAMES
+# def gender_ig():
+#     """PLAYER_NAMES"""
+#     global genderig
+#     random.choice(genderig)
+#     genderig = ['male_ig', 'female_ig']
+#     if genderig == 'male_ig':
+#         Male()
+#     elif genderig == 'female_ig':
+#         Female()
+
+
 def gender_ig():
-    global genderig
-    random.choice(genderig)
-    genderig = ['male_ig', 'female_ig']
-    if genderig == 'male_ig':
-        Male()
-    elif genderig == 'female_ig':
-        Female()
+
 
 
 def Male():
     global maleig_names
     while gender == 'male_ig':
-      Mname = raw_input(random.choice(maleig_names))
-      maleig_names = ["Jacob", "Liam", "Kyle", "Noah", "Bob", "Sean", "Marcus", "Micheal", 'Mike', "Jeff", "Owen", "Jayden",
-                "William", "James", "Logan", "Benjamin", "Mason", "Elijah", "Oliver", "Lucas", "Alexander", "Ethan","Luke",
-                'Daniel', "Matthew", "Aiden", "Henry", "Joseph", "Jackson", "Samuel", "Sebastian", "David", "Wyatt", "John"]
+        print "What is YOUR name?"
+        Mname = raw_input()
+
 
 def Female():
     global femaleig_names
     while gender == 'female_ig':
-      random.choice(femaleig_names)
-      femaleig_names = ["Angel", "Emma", "Samantha", "Sabrina", "Sally", "Debbie", "Jasmine", "Layla", "Nora", "Zoey", "Lilly","Mila", "Luna",
-                  "Olivia", "Isabella", "Sophia", "Mia", "Charlotte", "Amelia", "Evelyn", "Abigail", "Harper", "Emily", "Penelope",
-                  'Elizabeth', "Avery", "Riley", "Sofia", "Ella", "Madison", "Scarlett", "Victoria", "Grace", "Chloe", "Camila"]
+        print "What is YOUR name?"
+        Mname = raw_input()
 
 
-####-NPC&PLAYER
 class Character:
     def __init__(self, name):
         assert isinstance(name, object)
@@ -193,7 +199,7 @@ class NPC(Character):
     def __init__(self, name):
         Character.__init__(self, name)
         self.name = gendernpc
-        self.type = [people_dict, authorities_dict, animals_dict, shops_dict]
+        self.type = []
         self.maxhealth = 100
         self.health = self.maxhealth
         self.base_attack = 10
@@ -204,7 +210,6 @@ class NPC(Character):
         self.saying2 = ""
 
 
-####-Authorities
 def randomnpcs():
     global people_dict
     people_dict = {"Neigbor": {"name": "random.name", "gender": "random.choice()", "health": 30, "attack": 20},
