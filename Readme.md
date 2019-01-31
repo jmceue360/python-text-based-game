@@ -1,2 +1,6 @@
-# Earth-2086-A-New-Beginning--project
-This is a text-based sim/rpg game I've been working on in Python for over a year now. I have so many more ideas and features to include in this game but have yet to get to them. If anyone is willing to contribute to the development of this project and any ideas you might have for it then please post your ideas in the comments. I will also definitely need tips on how to organize my code a lot better. If you have any questions about this project at all, I will try my best to answer them.
+# Earth-2086--project
+This is a text-based rpg game Ive been working on for a while.
+I have so many more ideas and fixes to include in the code but have yet to get to them.
+
+If anyone is willing or able to contribute any ideas/issues you might have for this project I would appreciate it alot. 
+If you have any questions about this project at all, I will try my best to answer them.
