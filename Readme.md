@@ -1,4 +1,4 @@
-# Earth-2086--project
+#  Lifeordeath__python-project
 This is a text-based rpg game Ive been working on for a while.
 I have so many more ideas and fixes to include in the code but have yet to get to them.
 
