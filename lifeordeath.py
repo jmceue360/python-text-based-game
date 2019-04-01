@@ -1,61 +1,138 @@
 #!/usr/bin/env python
+import jsonpickle
+import textwrap
 import random
-import pickle
 import time
 import sys
 import os
 
 
-class Enemy:
-    def __init__(self, name, hp, damage):
+#Variables
+
+
+SAVEGAME_FILENAME = 'savegame.json'
+
+game_state = dict()
+
+
+### Classes ###
+
+class Human(object):
+#Represents the human player in the game
+    def __init__(self, name, health, strength, gold):
         self.name = name
-        self.hp = hp
-        self.damage = damage
+        self.health = health
+        self.strength = strength
+        self.gold = gold
 
-    def is_alive(self):
-        return self.hp > 0
+class AI(object):
+#Represents the enemy player in the game
+    def __init__(self, name, health, strength):
+        self.name = name
+        self.health = health
+        self.strength = strength
 
 
+class creature(object):
+#Represents the enemy player in the game
+    def __init__(self, type, name, health, strength, weakness):
+        self.name = name
+        self.health = health
+        self.strength = strength
 
 
+class Items:
+    def __init__(self, name, info, weight):
+        self.name = name
+        self.info = info
+        self.weight = weight
+
+###end classess###
+
+###functions for loading, saving, and initializing the game###
+def load_game():
+    """Load game state from a predefined savegame location and return the
+    game state contained in that savegame.
+    """
+    with open(SAVEGAME_FILENAME, 'r') as savegame:
+        state = jsonpickle.decode(savegame.read())
+    return state
 
 
+def save_game():
+    """Save the current game state to a savegame in a predefined location.
+    """
+    global game_state
+    with open(SAVEGAME_FILENAME, 'w') as savegame:
+        savegame.write(jsonpickle.encode(game_state))
 
 
-def _clear():
+def init_game():
+    """If no savegame exists, initialize the game state with some
+    default values.
+    """
+    global game_state
+    player = Human('Fred', 100, 10, 1000)
+    enemy = AI('Imp', 50, 20)
+
+    state = dict()
+    state['players'] = [player]
+    state['npcs'] = [enemy]
+    return state
+
+###End functions for loading, saving, and initalizing the game###
+
+
+# Commands = {
+#   'quit': Player.quit,
+#   'help': Player.help,
+#   'status': Player.status,
+#   'rest': Player.rest,
+#   'examine': Player.examine,
+#   'attack': Player.attack,
+#   }
+
+
+def _clear():#clear screen function
     os.system('cls' if os.name == 'nt' else 'clear')
 
+#The main game loop
+def Game_Loop():
 
-def main_menu():
-    "Main Menu Screen"
-    _clear()
-    time.sleep(0.2)
-    print("                                  /~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| ")
-    print("                                  |    Welcome To Life or Death    | ")
-    print("                                  |            The Game            | ")
-    print("                                  |================================| ")
-    print("                                  |    (1) Start the 'GAME'        | ")
-    print("                                  |    (2) Load Your Save          | ")
-    print("                                  |    (3) Help For Dummies        | ")
-    print("                                  |    (4) RAGE QUIT               | ")
-    print("                                  |================================| ")
-    print("                                  |        Pick a Number           | ")
-    print("                                  |================================| ")
-    print("                                  |  Copyright 2018 Jakob Mceuen   | ")
-    print("                                  |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/ ")
-    time.sleep(1.0)
-    option = input('                                  --> ')
-    if option == '1':
-        play()
-    elif option == '2':
-        main_menu()
-    elif option == '3':
+    global game_state
+
+    while True:
         _clear()
-        help_menu()
-    elif option == '4':
-        rage_quit()
-    else:
-        main_menu()
+        time.sleep(0.2)
+        print("/:::::::::::::::::::::::::::::::::::::::\ ")
+        print("::::::  Welcome To Life or Death  ::::::| ")
+        print("::::::::::::::  The Game  ::::::::::::::|" )
+        print("\:::::::::::::::::::::::::::::::::::::::/ ")
+        print("")
+        print("  |(1) New Game\n  |(2) Load Save\n  |(3) Help For Dummies\n  |(4) RAGE QUIT\n ")
+        time.sleep(1.0)
+        try:
+            selection = int(input(">>> "))
+        except ValueError:
+            print()
+            print("You can only use numbers 1, 2, 3, or 4.")
+            print()
+            _clear()
+            Game_Loop()
+        if selection == 1:
+            _clear()
+            init_game()
+        elif selection == 2:
+            _clear()
+            load_game()
+        elif selection == 3:
+            _clear()
+            help_menu()
+        elif selection == 4:
+            _clear()
+            rage_quit()
+        else:
+            Game_Loop()
 
 
 def help_menu():
@@ -346,53 +423,36 @@ def title_pic():
                             8|      9   | |      |   | |       |  |   |     |  |  |   |   |      |
                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~""")
     time.sleep(6.0)
-    main_menu()
-
-
-def load():
-    "Load Save"
-    _clear()
-    print('Function not added YET...')
-
-
-
-def play():
-    "starting start"
-    _clear()
-    option = input("'Start a New Save'[y/n] ----> ")
-    if option == 'y':
-        start()
-    elif option == 'Y':
-        start()
-    elif option == 'yes':
-        start()
-    elif option == 'Yes':
-        start()
-    elif option == 'YES':
-        start()
-    elif option == 'n':
-        main_menu()
-    elif option == 'N':
-        main_menu()
-    elif option == 'no':
-        main_menu()
-    elif option == 'No':
-        main_menu()
-    elif option == 'NO':
-        main_menu()
-    elif option == '/':
-        load()
-    else:
-        return option
+    Game_Loop()
 
 
 def start():
     "Start story"
     _clear()
-    option == ('ch') + ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
-    print("You suddenly awaken with a huge migrane and realize you are strapped to a gurney...")
-    ch1 = input 
+    choice1 = ''
+    print("gg")
 
+
+###End main game functions###
+
+###The "main" function, not to be confused with anything to do with main above it###
+def main():
+    """Main function. Check if a savegame exists, and if so, load it. Otherwise
+    initialize the game state with defaults. Finally, start the game.
+    """
+    global game_state
+
+    if not os.path.isfile(SAVEGAME_FILENAME):
+        game_state = initialize_game()
+    else:
+        game_state = load_game()
+    Game_Loop()
+
+
+if __name__ == '__main__':
+    main()
+
+###end main function###
 
 
 title_pic()
